@@ -55,6 +55,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # use Pry as an alternative shell, which adds many extra features that aren't available using the IRB shell.
+  gem 'pry-rails'
 end
 
 group :development, :test do
