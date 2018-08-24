@@ -16,5 +16,6 @@ module Bloccit2
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.assets.initialize_on_precompile = false
+      config.autoload_paths << File.join(config.root, "lib")
   end
 end
