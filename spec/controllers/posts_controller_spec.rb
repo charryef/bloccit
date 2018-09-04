@@ -30,6 +30,7 @@ RSpec.describe PostsController, type: :controller do
          get :new, params: { topic_id: my_topic.id }
          expect(response).to redirect_to(new_session_path)
        end
+     end
 
      describe "POST create" do
        it "returns http redirect" do
@@ -174,3 +175,4 @@ RSpec.describe PostsController, type: :controller do
        end
      end
    end
+end
