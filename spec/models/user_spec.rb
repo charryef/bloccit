@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'bcrypt'
 
 RSpec.describe User, type: :model do
   let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
@@ -55,6 +54,10 @@ RSpec.describe User, type: :model do
      end
 
      context "admin user" do
+       before do
+         user.admin!
+       end
+
        it "returns false for #member?" do
          expect(user.member?).to be_falsey
        end

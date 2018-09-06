@@ -80,4 +80,4 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 
 # Used for encrypting passwords
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.11'
