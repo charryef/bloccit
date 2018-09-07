@@ -20,5 +20,5 @@ class User < ApplicationRecord
 #comment out for now due to bcrypt error in rails console
   has_secure_password
 
-  enum role: [:member, :admin]
+  enum role: [:member, :admin, :moderator]
 end
