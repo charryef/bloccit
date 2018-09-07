@@ -62,8 +62,13 @@ class TopicsController < ApplicationController
 
   def authorize_user
     unless current_user.admin?
-      flash[:alert] = "You must be an admin to do that."
-      redirect_to topics_path
+      if !current_user.admin? && (params['action'] == 'new' || params['action'] == 'create' || params['action'] == 'destroy')
+        flash[:alert] = "You must be an admin to do that."
+        redirect_to topics_path
+      elsif (params['action'] == 'update' && !(current_user.admin? || current_user.moderator?) )
+        flash[:alert] = "You must be an admin or a moderator to do that."
+        redirect_to topics_path
+      end
     end
   end
 end

@@ -7,7 +7,7 @@ RSpec.describe TopicsController, type: :controller do
 
   context "moderator user" do
     before do
-      user = User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld", role: :admin)
+      user = User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld", role: :moderator)
       create_session(user)
     end
 
@@ -41,18 +41,18 @@ RSpec.describe TopicsController, type: :controller do
     end
 
     describe "GET new" do
-     it "returns http redirect" do
-       get :new
-       expect(response).to redirect_to(new_session_path)
-     end
-   end
+      it "returns http redirect" do
+        get :new
+        expect(response).to redirect_to(topics_path)
+      end
+    end
 
-   describe "POST create" do
-     it "returns http redirect" do
-       post :create, params: { topic: { name: RandomData.random_sentence, description: RandomData.random_paragraph } }
-       expect(response).to redirect_to(new_session_path)
-     end
-   end
+    describe "POST create" do
+      it "returns http redirect" do
+        post :create, params: { topic: { name: RandomData.random_sentence, description: RandomData.random_paragraph } }
+        expect(response).to redirect_to(topics_path)
+      end
+    end
 
    describe "GET edit" do
       it "returns http success" do
@@ -96,11 +96,11 @@ RSpec.describe TopicsController, type: :controller do
         expect(response).to redirect_to my_topic
       end
     end
-    
+
     describe "DELETE destroy" do
       it "returns http redirect" do
         delete :destroy, params: { id: my_topic.id }
-        expect(response).to redirect_to(new_session_path)
+        expect(response).to redirect_to(topics_path)
       end
     end
   end
@@ -145,7 +145,7 @@ RSpec.describe TopicsController, type: :controller do
     describe "POST create" do
       it "returns http redirect" do
         post :create, params: { topic: { name: RandomData.random_sentence, description: RandomData.random_paragraph } }
-        expect(response).to redirect_to(topics_path)
+        expect(response).to redirect_to(new_session_path)
       end
     end
 
@@ -169,7 +169,7 @@ RSpec.describe TopicsController, type: :controller do
     describe "DELETE destroy" do
       it "returns http redirect" do
         delete :destroy, params: { id: my_topic.id }
-        expect(response).to redirect_to(topics_path)
+        expect(response).to redirect_to(new_session_path)
       end
     end
   end
