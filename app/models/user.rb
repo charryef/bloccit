@@ -1,4 +1,4 @@
-require 'bcrypt'
+#require 'bcrypt'
 
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   validates :name, length: { minimum: 1, maximum: 100 }, presence: true
 
+  #comment out for now due to bcrypt error in rails console
   validates :password, presence: true, length: { minimum: 6 }, if: -> { password_digest.nil? }
   validates :password, length: { minimum: 6 }, allow_blank: true
 
@@ -16,6 +17,7 @@ class User < ApplicationRecord
              uniqueness: { case_sensitive: false },
              length: { minimum: 3, maximum: 254 }
 
+#comment out for now due to bcrypt error in rails console
   has_secure_password
 
   enum role: [:member, :admin]
