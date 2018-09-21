@@ -1,16 +1,6 @@
 require 'random_data'
 require 'faker'
 
-#Create Comments
-100.times do
-  Comment.create!(
-    user: users.sample,
-    post: posts.sample,
-    body: RandomData.random_paragraph
-  )
-end
-
-
 # Create Users
 5.times do
   User.create!(
@@ -40,6 +30,16 @@ topics = Topic.all
   )
 end
 posts = Post.all
+
+#Create Comments
+100.times do
+  Comment.create!(
+    user: users.sample,
+    post: posts.sample,
+    body: RandomData.random_paragraph
+  )
+end
+
 
 # Create an admin user
 admin = User.create!(
