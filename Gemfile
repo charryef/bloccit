@@ -83,3 +83,5 @@ gem 'jquery-rails'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
 gem 'bootstrap-sass'
+
+gem 'bootstrap', '~> 4.1.3'
