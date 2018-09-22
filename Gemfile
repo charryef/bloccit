@@ -81,3 +81,5 @@ gem 'jquery-rails'
 
 # Used for encrypting passwords
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
+gem 'bootstrap-sass'
