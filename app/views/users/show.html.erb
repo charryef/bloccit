@@ -24,22 +24,10 @@
 </div>
 
 <h2>Posts</h2>
-<% if @user.posts.any? %>
-  <%= render @user.posts %>
-<% else %>
-  <p><%= @user.name %> has not submitted any posts yet.</p>
-<% end %>
+<%= user_posts?(@user) %>
 
 <h2>Comments</h2>
-<% if @user.comments.any? %>
-  <%= render @user.comments %>
-<% else %>
-  <p><%= @user.name %> has not submitted any comments yet.</p>
-<% end %>
+<%= user_comments?(@user) %>
 
 <h2>Favorites</h2>
-<% if @user.favorites.any? %>
-  <%= render @favorite_posts %>
-<% else %>
-  <p><%= @user.name %> has not favorited any posts yet.</p>
-<% end %>
+<%= user_favorites?(@user) %>
